@@ -4,33 +4,33 @@ function calcWaterVolume(blockHeights) {
   console.log(blockHeights)
 
   var waterVolume = 0;
-  var leftMaxHight = 0;
+  var leftMaxHeight = 0;
 
   // iterate over inner blocks
   for(var i=1; i<blockHeights.length-1; i++) {
     
     // find max height on the left of the block i
-    if(blockHeights[i-1] > leftMaxHight) {
-      leftMaxHight = blockHeights[i-1]
+    if(blockHeights[i-1] > leftMaxHeight) {
+      leftMaxHeight = blockHeights[i-1]
     }
 
     // find max height on the right of the block i
-    var rightMaxHight = 0
+    var rightMaxHeight = 0
     for(var j=i+1; j<blockHeights.length; j++) {
-      if(blockHeights[j] > rightMaxHight) {
-        rightMaxHight = blockHeights[j]
+      if(blockHeights[j] > rightMaxHeight) {
+        rightMaxHeight = blockHeights[j]
       }
     }
     
     // calculate the water we can fill the block i with
-    var lowestMaxHeight = Math.min(leftMaxHight, rightMaxHight)
+    var lowestMaxHeight = Math.min(leftMaxHeight, rightMaxHeight)
     var waterToAdd = 0
     if(blockHeights[i] < lowestMaxHeight) {
       waterToAdd = lowestMaxHeight - blockHeights[i]
     }
     waterVolume += waterToAdd
 
-    console.log(`${i} ${leftMaxHight} ${rightMaxHight} +${waterToAdd}`)
+    console.log(`${i} ${leftMaxHeight} ${rightMaxHeight} +${waterToAdd}`)
   }
 
   return waterVolume;
