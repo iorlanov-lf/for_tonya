@@ -3,4 +3,4 @@
 **Solutions:**
 1. **water_park.js** - straight forward implementation
 2. **beter_water_park.js** - optimized the determination of the max height on the left
-3. **best_water_park.js** - optimized the determination of the max height on the right
+3. **best_water_park.js** - optimized the determination of the max height on the right (work in progress)
