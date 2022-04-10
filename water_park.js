@@ -1,5 +1,10 @@
 
 
+/* 
+A simple solution of the problem at 
+https://leetcode.com/problems/trapping-rain-water/
+*/
+
 function calcWaterVolume(blockHeights) {
   console.log(blockHeights)
 

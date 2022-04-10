@@ -1,4 +1,10 @@
 
+/* 
+A  solution of the problem at 
+https://leetcode.com/problems/trapping-rain-water/
+This version avoids iterating over all blocks on the left to find the left maximum.
+This version also avoids iterating over all blocks on the right if possible.
+*/
 
 function calcWaterVolume(blockHeights) {
   console.log(blockHeights)
@@ -17,10 +23,13 @@ function calcWaterVolume(blockHeights) {
     }
 
     // find max height on the right of the block i
-    
-    for(var j=i+1; j<blockHeights.length; j++) {
-      if(blockHeights[j] > rightMaxHeight) {
-        rightMaxHeight = blockHeights[j]
+    if(i > rightMaxHeightIdx) {
+      var rightMaxHeight = 0;
+      for(var j=i+1; j<blockHeights.length; j++) {
+        if(blockHeights[j] >= rightMaxHeight) {
+          rightMaxHeight = blockHeights[j]
+          rightMaxHeightIdx = j;
+        }
       }
     }
     
